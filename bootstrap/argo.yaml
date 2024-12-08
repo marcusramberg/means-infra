@@ -1,0 +1,29 @@
+---
+redis-ha:
+  enabled: true
+
+controller:
+  replicas: 1
+
+server:
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+  ingress:
+    enabled: true
+    ingressClassName: tailscale
+    tls: true
+
+repoServer:
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+
+applicationSet:
+  replicas: 2
+
+global:
+  domain: argocd
+
+certificate:
+  enabled: true

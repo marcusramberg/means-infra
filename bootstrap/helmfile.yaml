@@ -1,0 +1,21 @@
+---
+repositories:
+ - name: tailscale 
+   url:  https://pkgs.tailscale.com/helmcharts
+ - name: argocd
+   url: https://argoproj.github.io/argo-helm 
+
+releases:
+- name: tailscale
+  namespace: tailscale
+  chart: tailscale/tailscale-operator
+  values:
+    - oauth:
+        clientId: ref+bw://eff8d5ce-178a-4f7b-aca1-4426204dffe2/username
+        clientSecret: ref+bw://eff8d5ce-178a-4f7b-aca1-4426204dffe2/password
+- name: argocd
+  namespace: argocd
+  installed: true
+  chart: argocd/argo-cd
+  values:
+    - argo.yaml
