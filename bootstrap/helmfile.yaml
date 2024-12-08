@@ -11,6 +11,7 @@ releases:
   chart: tailscale/tailscale-operator
   values:
     - oauth:
+        # tailscale oauth client, saved in bitwarden. must run bw serve and have a valid session
         clientId: ref+bw://eff8d5ce-178a-4f7b-aca1-4426204dffe2/username
         clientSecret: ref+bw://eff8d5ce-178a-4f7b-aca1-4426204dffe2/password
 - name: argocd
