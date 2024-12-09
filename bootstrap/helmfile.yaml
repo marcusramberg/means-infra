@@ -4,7 +4,8 @@ repositories:
    url:  https://pkgs.tailscale.com/helmcharts
  - name: argocd
    url: https://argoproj.github.io/argo-helm 
-
+ - name: prometheus-community
+   url: https://prometheus-community.github.io/helm-charts
 releases:
 - name: tailscale
   namespace: tailscale
@@ -14,6 +15,11 @@ releases:
         # tailscale oauth client, saved in bitwarden. must run bw serve and have a valid session
         clientId: ref+bw://eff8d5ce-178a-4f7b-aca1-4426204dffe2/username
         clientSecret: ref+bw://eff8d5ce-178a-4f7b-aca1-4426204dffe2/password
+- name: prometheus-stack
+  namespace: monitoring
+  chart: prometheus-community/kube-prometheus-stack
+  values:
+    - prometheus.yaml
 - name: argocd
   namespace: argocd
   installed: true

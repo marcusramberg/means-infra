@@ -1,0 +1,10 @@
+---
+nameOverride: prom
+grafana:
+  adminPassword: ref+bw://3991c6de-5723-4ec3-b343-748b048a9b45/password
+  ingress:
+    enabled: true
+    ingressClassName: tailscale
+    tls:
+      - hosts:
+          - grafana
