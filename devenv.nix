@@ -26,6 +26,7 @@ in
     helmWrap
     helmfileWrap
     inputs.helmfile-nix.packages.${pkgs.stdenv.system}.default
+    k9s
     opentofu
     stern
   ];
