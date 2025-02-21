@@ -1,7 +1,5 @@
 {
   pkgs,
-  lib,
-  config,
   inputs,
   ...
 }:
@@ -21,8 +19,10 @@ in
   env = {
     KUBECONFIG = "/etc/rancher/k3s/k3s.yaml";
   };
+
   packages = with pkgs; [
     argocd
+    bitwarden-cli
     helmWrap
     helmfileWrap
     inputs.helmfile-nix.packages.${pkgs.stdenv.system}.default
@@ -30,6 +30,10 @@ in
     opentofu
     stern
   ];
+
+  processes = {
+    bw.exec = "${pkgs.bitwarden-cli}/bin/bw serve";
+  };
 
   scripts.kubectl.exec = ''
     k3s kubectl $@
