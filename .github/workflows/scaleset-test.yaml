@@ -5,7 +5,7 @@ on:
 jobs:
   Explore-GitHub-Actions:
     # You need to use the INSTALLATION_NAME from the previous step
-    runs-on: infra-container-scaleset
+    runs-on: infra-scaleset
     container:
       image: ubuntu
       options: -u ubuntu
