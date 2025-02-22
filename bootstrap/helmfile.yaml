@@ -58,3 +58,22 @@ releases:
     controllerServiceAccount:
       namespace: arc
       name: arc-controller-gha-rs-controller
+- name: infra-container-scaleset
+  version: 0.10.1
+  namespace: runners
+  chart: arc/gha-runner-scale-set
+  values:
+  - githubConfigSecret: pre-defined-secret
+    containerMode: 
+      type: kubernetes
+      kubernetesModeWorkVolumeClaim:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: "dynamic-blob-storage"
+        resources:
+          requests:
+            storage: 1Gi
+
+    githubConfigUrl: https://github.com/marcusramberg/means-infra
+    controllerServiceAccount:
+      namespace: arc
+      name: arc-controller-gha-rs-controller
