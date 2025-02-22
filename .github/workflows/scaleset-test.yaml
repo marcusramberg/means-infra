@@ -10,4 +10,5 @@ jobs:
       image: ubuntu
       options: -u ubuntu
     steps:
-      - run: uname -a
+      - run: whoami
+      - run: df -h
