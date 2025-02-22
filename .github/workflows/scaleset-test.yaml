@@ -6,5 +6,8 @@ jobs:
   Explore-GitHub-Actions:
     # You need to use the INSTALLATION_NAME from the previous step
     runs-on: infra-container-scaleset
+    container:
+      image: ubuntu
+      options: -u ubuntu
     steps:
-      - run: echo "🎉 This job uses runner scale set runners!"
+      - run: uname -a
