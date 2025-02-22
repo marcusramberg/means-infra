@@ -68,7 +68,6 @@ releases:
       type: kubernetes
       kubernetesModeWorkVolumeClaim:
         accessModes: ["ReadWriteOnce"]
-        storageClassName: "dynamic-blob-storage"
         resources:
           requests:
             storage: 1Gi
