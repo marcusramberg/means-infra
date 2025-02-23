@@ -55,6 +55,8 @@ releases:
   values:
   - githubConfigSecret: pre-defined-secret
     githubConfigUrl: https://github.com/marcusramberg/means-infra
+    containerMode: 
+      type: dind
     controllerServiceAccount:
       namespace: arc
       name: arc-controller-gha-rs-controller
