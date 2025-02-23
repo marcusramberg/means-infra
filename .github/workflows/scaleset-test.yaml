@@ -4,7 +4,6 @@ on:
 
 jobs:
   Explore-GitHub-Actions:
-    # You need to use the INSTALLATION_NAME from the previous step
     runs-on: infra-scaleset
     container:
       image: ubuntu
@@ -12,3 +11,8 @@ jobs:
     steps:
       - run: whoami
       - run: df -h
+      - name: Print to Log
+        id: print-to-log
+        uses: actions/hello-world-docker-action@main
+        with:
+          who-to-greet: Silven
