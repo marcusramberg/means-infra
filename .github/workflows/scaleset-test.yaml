@@ -5,14 +5,19 @@ on:
 jobs:
   Explore-GitHub-Actions:
     runs-on: infra-scaleset
-    container:
-      image: ubuntu
-      options: -u ubuntu
+    # container:
+    #   image: ubuntu
+    #   options: -u ubuntu
+    env:
+      HELLO: WORLD
     steps:
       - run: whoami
       - run: df -h
+      - id: lc
+        run: |
+          python3 -c'print("lc=${{env.HELLO}}".lower())' >> "$GITHUB_OUTPUT"
       - name: Print to Log
         id: print-to-log
         uses: actions/hello-world-docker-action@main
         with:
-          who-to-greet: Silven
+          who-to-greet: ${{ steps.lc.outputs.lc }}
